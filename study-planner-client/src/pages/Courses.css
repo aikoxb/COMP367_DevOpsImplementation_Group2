@@ -1,0 +1,93 @@
+/* study-planner-client/src/pages/Courses.css */
+
+/* ============ Course page Banner ============ */
+
+.courses-banner-card {
+    background-image: url('/courses-banner.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    border-color: #00AFB9;
+}
+
+.banner-info-card-courses {
+    width: 100rem;              
+    max-width: 100%;
+    padding: 1.25rem 1.25rem 0rem 1.25rem;
+    border-radius: 16px;
+    background: rgba(1, 86, 112, 0.358);          
+    border: 1px solid rgba(253, 252, 220, 0.35);  
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* ============ Course list ============ */
+
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+@media (max-width: 1200px) {
+    .courses-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .courses-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.courses-grid {
+    height: 100%;
+}
+
+.list-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* ============ Card for Course in list ============ */
+
+.course-image {
+    width: 5em;
+    height: 5em;
+    border-radius: 80%;
+}
+
+.course-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+}
+
+.course-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.course-image {
+    width: 5em;
+    height: 5em;
+    border-radius: 50%;
+}
+
+.course-list-card {
+    border-color: #00AFB9;
+    background-color: #E4E4E4;
+}
+
+.course-semester {
+    color: rgba(0, 0, 0, 0.55);
+}
+
+.course-dash {
+    color: rgba(0, 0, 0, 0.35);
+    font-weight: 400;
+}

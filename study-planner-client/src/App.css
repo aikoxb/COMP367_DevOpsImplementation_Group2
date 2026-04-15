@@ -1,0 +1,105 @@
+/* study-planner-client/App.css */
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 1em;
+  border-radius: 1rem;
+}
+
+.page-content {
+  padding: 8em 5em 0 5em;
+  
+}
+
+.app-container {
+  max-width: 1200px;
+}
+
+/* ============ Navbar ============ */
+
+.navbar {
+  padding: 0 !important;
+  background-color: rgba(0, 103, 134, 0.85) !important;
+  border-bottom: 2px solid #00AFB9 !important;
+  color: #ffffff !important;
+  text-transform: uppercase;
+  letter-spacing: 0.03rem;
+}
+
+.navbar .navbar-brand {
+  padding: 0;
+  margin: 0;
+}
+
+.navbar-brand-container {
+  display: inline-flex;
+  align-items: center;
+  background: linear-gradient(to right, #00AFB9, #0081A7);
+  padding: 1.5rem 4rem;
+  margin-left: calc(-1 * var(--bs-navbar-padding-x, 0.75rem));
+  color: #ffffff;
+  font-weight: 600;
+  margin-right: 2rem;
+}
+
+.navbar .nav-link {
+  display: flex;
+  align-items: center;
+  padding: 1.7rem 2rem !important;
+  height: 100%;
+  color: #ffffff !important;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.navbar .nav-link:hover {
+  background-color: rgba(1, 86, 112, 0.85);
+  color: white !important;
+}
+
+.navbar .logout-btn {
+  background-color: transparent !important;
+  border: 2px solid hsl(0, 0%, 100%) !important;
+  color: #ffffff !important;
+  font-weight: 500;
+  padding: 0.45rem 1.1rem;
+  box-shadow: none !important;
+  margin-right: 4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03rem;
+}
+
+.navbar .logout-btn:hover {
+  background-color: #014c63 !important;
+  border-color: #014c63 !important;
+  color: #03d3de !important;
+  transform: translateY(-1px);
+}
+

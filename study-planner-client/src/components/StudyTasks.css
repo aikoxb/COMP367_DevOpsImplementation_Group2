@@ -1,0 +1,159 @@
+/* study-planner-client/src/components/StudyTasks.css */
+
+/* ============ Task list ============ */
+
+.task-list-card {
+    border-color: #00AFB9;
+    background-color: #E4E4E4;
+    margin: 0 -0.75rem 0 -0.75rem;
+}
+
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.task-image {
+    width: 5em;
+    height: 5em;
+    border-radius: 80%;
+}
+
+.task-instruction{             
+    max-width: 100%;
+    margin: 2rem 0 2rem 0;
+    padding: 1.25rem;
+    border-radius: 16px;
+    background: rgba(1, 86, 112, 0.358);          
+    border: 1px solid rgba(253, 252, 220, 0.35);  
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+
+.task-instruction-body {
+  display: flex;
+  align-items: center; /* vertically aligns image + text */
+  gap: 1rem;
+  padding: 0; /* optional: tighter look */
+}
+
+.task-instruction-text {
+  margin: 0;            /* remove default <p> margin */
+  color: white;
+  text-align: left;
+  flex: 1;
+}
+
+/* ============ Card for Task in list ============ */
+
+.task-top {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.task-check {
+    width: 34px;
+    padding-top: 4px; 
+    display: flex;
+    justify-content: center;
+}
+
+.task-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.task-title-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.task-title {
+    font-weight:600;
+    font-size: 1.15rem;
+    line-height: 1.2;
+    white-space: normal;
+    overflow: visible;
+}
+
+.task-priority {
+    flex-shrink: 0;
+    padding: 0.25em 0.5em;
+}
+
+.high-priority {
+    background-color: #F07167 !important;
+    color: white;
+    font-weight: 630;
+    padding: 0.4rem 0.4rem;
+}
+
+.med-priority {
+    background-color: #9b4842!important;
+    color: white;
+    font-weight: 630;
+    padding: 0.4rem 0.4rem;
+}
+
+.low-priority {
+    background-color: #00AFB9 !important;
+    color: white;
+    font-weight: 630;
+    padding: 0.4rem 0.4rem;
+}
+
+.task-desc {
+    margin-top: 6px;
+    opacity: 0.78;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /*ellipsis when too long */
+}
+
+.task-done {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+.task-meta-col {
+    text-align: right;
+    white-space: nowrap;
+}
+
+.task-right-col {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;  
+    gap: 24px;                
+}
+
+.task-meta-col {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    gap: 4px;
+}
+
+.circle-checkbox .form-check-input {
+    border-radius: 50%;
+    height: 1.5em;  
+    width: 1.5em;      
+}
+
+.circle-checkbox .form-check-input:checked {
+    background-color: #00AFB9;
+    border-color: #00AFB9;
+}
+
+.circle-checkbox :focus,
+.circle-checkbox :focus-visible {
+  background-color: #00AFB9 !important;
+  border-color: #00AFB9 !important;
+  box-shadow: 0 0 0 0.2rem rgba(0, 175, 185, 0.25) !important;
+}
+

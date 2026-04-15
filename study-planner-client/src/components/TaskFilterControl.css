@@ -1,0 +1,71 @@
+/*study-planner-client/src/components/TaskFilterControl.css*/
+
+/* ============ Task Filter Panel ============ */
+
+.form-check-input {
+    width: 1.5em;
+    height: 1.5em;
+    text-align: center;
+    margin-top: 0.8rem;
+}
+
+.form-check-input:checked{
+    border-color: #00AFB9;
+    background-color: #0081A7 !important;
+}
+
+.form-check-input:focus {
+    border-color: #00AFB9;
+    box-shadow: 0 0 0 0.2rem rgba(0, 175, 185, 0.25);
+}
+
+.filter-menu.sp-panel {
+  padding: 1rem !important;
+  border: 1px solid rgba(0, 175, 185, 0.35) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18) !important;
+}
+
+.filter-menu.sp-panel .form-check-input {
+  width: 1.5em;
+  height: 1.5em;
+  margin-top: 0.25rem;
+}
+
+.filter-menu.sp-panel .form-check-input:checked {
+  border-color: #00AFB9;
+  background-color: #0081A7 !important;
+}
+
+.filter-menu.sp-panel .form-check-input:focus {
+  border-color: #00AFB9;
+  box-shadow: 0 0 0 0.2rem rgba(0, 175, 185, 0.25);
+}
+
+.filter-menu.sp-panel .form-check-label {
+  font-weight: 600;
+  margin-left: 0.75rem;
+}
+
+.apply-btn {
+  font-weight: 700;
+  padding: 0.3rem 0.9rem;
+  width: 6rem;
+  background-color: #00AFB9 !important;
+  border-color: #00AFB9 !important;
+  color: #ffffff !important;
+  font-size: 0.9rem;
+}
+
+.apply-btn:hover {
+  background-color: #008C94 !important;
+  border-color: #008C94 !important;
+  color: #ffffff !important;
+}
+
+.apply-btn:active,
+.apply-btn.active {
+  background-color: #008C94 !important;
+  border-color: #008C94 !important;
+  color: #ffffff !important;
+}
