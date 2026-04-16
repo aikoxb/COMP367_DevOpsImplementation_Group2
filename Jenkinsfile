@@ -44,7 +44,7 @@ pipeline {
             }
         }
 
-                // Stage 3: SonarQube static code analysis
+        // Stage 3: SonarQube static code analysis
         stage('SonarQube Analysis') {
             steps {
                 echo 'Running SonarQube static code analysis'
@@ -60,7 +60,7 @@ pipeline {
             }
         }
 
-                // Stage 4: Test stage (run unit tests for backend and frontend)
+        // Stage 4: Test stage (run unit tests for backend and frontend)
         // Stage 3: Test stage to execute test commands and show code coverage output
         stage('Test') {
             steps {
@@ -80,7 +80,7 @@ pipeline {
             }
         }
 
-                // Stage 5: Deliver stage (build production artifacts)
+        // Stage 5: Deliver stage (build production artifacts)
         stage('Deliver') {
             steps {
                 echo 'Building production artifacts for server and client'
@@ -102,7 +102,7 @@ pipeline {
             }
         }
 
-                // Stage 7: Deploy to QAT environment (mocked)
+        // Stage 7: Deploy to QAT environment (mocked)
         stage('Deploy to QAT') {
             steps {
                 echo 'Deploying application to QAT environment (mocked deploy)'
@@ -120,28 +120,6 @@ pipeline {
         stage('Deploy to Production') {
             steps {
                 echo 'Deploying application to Production environment (mocked deploy)'
-            }
-        }
-                // Navigate into the server directory
-                dir('server') {
-                    // Run the server test command
-                    bat 'npm test'
-
-                    // Display the generated coverage report
-                    echo 'Coverage report for server:'
-                    bat 'type coverage\\coverage.txt'
-                }
-
-                echo 'Running tests for client'
-
-                // Navigate into the client directory
-                dir('study-planner-client') {
-                    // Run the client test command
-                    bat 'npm test'
-                    // Display the generated coverage report
-                    echo 'Coverage report for client:'
-                    bat 'type coverage\\coverage.txt'
-                }
             }
         }
     }
