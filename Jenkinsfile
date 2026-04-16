@@ -60,22 +60,30 @@ pipeline {
             }
         }
 
-        // Stage 4: Test stage (run unit tests for backend and frontend)
-        // Stage 3: Test stage to execute test commands and show code coverage output
+        // Stage 4: Test stage to execute test commands and show code coverage output
         stage('Test') {
             steps {
                 echo 'Running tests for server'
 
+                // Navigate into the server directory
                 dir('server') {
-                    // Run backend tests (or a placeholder)
-                    bat 'npm test || echo "No backend tests configured"'
+                    // Run the server test command
+                    bat 'npm test'
+
+                    // Display the generated coverage report
+                    echo 'Coverage report for server:'
+                    bat 'type coverage\\coverage.txt'
                 }
 
-                echo 'Running tests for study-planner-client'
+                echo 'Running tests for client'
 
+                // Navigate into the client directory
                 dir('study-planner-client') {
-                    // Run frontend tests (or a placeholder)
-                    bat 'npm test || echo "No frontend tests configured"'
+                    // Run the client test command
+                    bat 'npm test'
+                    // Display the generated coverage report
+                    echo 'Coverage report for client:'
+                    bat 'type coverage\\coverage.txt'
                 }
             }
         }
