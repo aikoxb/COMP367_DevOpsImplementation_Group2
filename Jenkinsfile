@@ -43,8 +43,24 @@ pipeline {
                 }
             }
         }
-      
-       // Stage 3: Test stage to execute test commands and show code coverage output
+
+        // Stage 3: SonarQube static code analysis
+        stage('SonarQube Analysis') {
+            steps {
+                echo 'Running SonarQube static code analysis'
+
+                withSonarQubeEnv('My SonarQube Server') {
+                    bat '''
+                        sonar-scanner ^
+                        -Dsonar.projectKey=comp367-study-planner ^
+                        -Dsonar.projectName=comp367-study-planner ^
+                        -Dsonar.sources=server,study-planner-client
+                    '''
+                }
+            }
+        }
+
+        // Stage 4: Test stage to execute test commands and show code coverage output
         stage('Test') {
             steps {
                 echo 'Running tests for server'
@@ -72,53 +88,47 @@ pipeline {
             }
         }
 
-         // Stage 3: Deliver stage (release artifact using project build tool)
+        // Stage 5: Deliver stage (build production artifacts)
         stage('Deliver') {
             steps {
-                echo 'Building production artifacts for server and study-planner-client'
+                echo 'Building production artifacts for server and client'
 
-                // Navigate into the server directory
                 dir('server') {
-                    // Release backend artifact using Node.js build tool
                     bat 'npm run build || echo "No server build script configured"'
                 }
 
-                // Navigate into the client directory
                 dir('study-planner-client') {
-                    // Release frontend artifact using Node.js build tool
                     bat 'npm run build || echo "No client build script configured"'
                 }
             }
         }
 
-        // Stage 4: Deploy to Dev environment
+        // Stage 6: Deploy to Dev environment (mocked)
         stage('Deploy to Dev') {
             steps {
                 echo 'Deploying application to Dev environment (mocked deploy)'
-                echo 'Launching deployed app in Dev environment (mocked)'
             }
         }
 
-        // Stage 5: Deploy to QAT environment
+        // Stage 7: Deploy to QAT environment (mocked)
         stage('Deploy to QAT') {
             steps {
                 echo 'Deploying application to QAT environment (mocked deploy)'
             }
         }
 
-        // Stage 6: Deploy to Staging environment
+        // Stage 8: Deploy to Staging environment (mocked)
         stage('Deploy to Staging') {
             steps {
                 echo 'Deploying application to Staging environment (mocked deploy)'
             }
         }
 
-        // Stage 7: Deploy to Production environment
+        // Stage 9: Deploy to Production environment (mocked)
         stage('Deploy to Production') {
             steps {
                 echo 'Deploying application to Production environment (mocked deploy)'
             }
         }
-       
     }
 }
