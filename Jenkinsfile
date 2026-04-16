@@ -34,12 +34,40 @@ pipeline {
                     bat 'npm install'
                 }
 
-                echo 'Installing dependencies for study-planner-client'
+                echo 'Installing dependencies for client'
 
                 // Navigate into the client directory
                 dir('study-planner-client') {
                     // Install Node.js dependencies for frontend
                     bat 'npm install'
+                }
+            }
+        }
+
+        // Stage 3: Test stage to execute test commands and show code coverage output
+        stage('Test') {
+            steps {
+                echo 'Running tests for server'
+
+                // Navigate into the server directory
+                dir('server') {
+                    // Run the server test command
+                    bat 'npm test'
+
+                    // Display the generated coverage report
+                    echo 'Coverage report for server:'
+                    bat 'type coverage\\coverage.txt'
+                }
+
+                echo 'Running tests for client'
+
+                // Navigate into the client directory
+                dir('study-planner-client') {
+                    // Run the client test command
+                    bat 'npm test'
+                    // Display the generated coverage report
+                    echo 'Coverage report for client:'
+                    bat 'type coverage\\coverage.txt'
                 }
             }
         }
