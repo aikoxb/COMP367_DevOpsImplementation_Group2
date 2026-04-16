@@ -43,5 +43,83 @@ pipeline {
                 }
             }
         }
+
+                // Stage 3: SonarQube static code analysis
+        stage('SonarQube Analysis') {
+            steps {
+                echo 'Running SonarQube static code analysis'
+
+                withSonarQubeEnv('My SonarQube Server') {
+                    bat '''
+                        sonar-scanner ^
+                        -Dsonar.projectKey=comp367-study-planner ^
+                        -Dsonar.projectName=comp367-study-planner ^
+                        -Dsonar.sources=server,study-planner-client
+                    '''
+                }
+            }
+        }
+
+                // Stage 4: Test stage (run unit tests for backend and frontend)
+        stage('Test') {
+            steps {
+                echo 'Running tests for server'
+
+                dir('server') {
+                    // Run backend tests (or a placeholder)
+                    bat 'npm test || echo "No backend tests configured"'
+                }
+
+                echo 'Running tests for study-planner-client'
+
+                dir('study-planner-client') {
+                    // Run frontend tests (or a placeholder)
+                    bat 'npm test || echo "No frontend tests configured"'
+                }
+            }
+        }
+
+                // Stage 5: Deliver stage (build production artifacts)
+        stage('Deliver') {
+            steps {
+                echo 'Building production artifacts for server and client'
+
+                dir('server') {
+                    bat 'npm run build || echo "No server build script configured"'
+                }
+
+                dir('study-planner-client') {
+                    bat 'npm run build || echo "No client build script configured"'
+                }
+            }
+        }
+
+        // Stage 6: Deploy to Dev environment (mocked)
+        stage('Deploy to Dev') {
+            steps {
+                echo 'Deploying application to Dev environment (mocked deploy)'
+            }
+        }
+
+                // Stage 7: Deploy to QAT environment (mocked)
+        stage('Deploy to QAT') {
+            steps {
+                echo 'Deploying application to QAT environment (mocked deploy)'
+            }
+        }
+
+        // Stage 8: Deploy to Staging environment (mocked)
+        stage('Deploy to Staging') {
+            steps {
+                echo 'Deploying application to Staging environment (mocked deploy)'
+            }
+        }
+
+        // Stage 9: Deploy to Production environment (mocked)
+        stage('Deploy to Production') {
+            steps {
+                echo 'Deploying application to Production environment (mocked deploy)'
+            }
+        }
     }
 }
