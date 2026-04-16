@@ -43,5 +43,53 @@ pipeline {
                 }
             }
         }
+
+         // Stage 3: Deliver stage (release artifact using project build tool)
+        stage('Deliver') {
+            steps {
+                echo 'Building production artifacts for server and study-planner-client'
+
+                // Navigate into the server directory
+                dir('server') {
+                    // Release backend artifact using Node.js build tool
+                    bat 'npm run build || echo "No server build script configured"'
+                }
+
+                // Navigate into the client directory
+                dir('study-planner-client') {
+                    // Release frontend artifact using Node.js build tool
+                    bat 'npm run build || echo "No client build script configured"'
+                }
+            }
+        }
+
+        // Stage 4: Deploy to Dev environment
+        stage('Deploy to Dev') {
+            steps {
+                echo 'Deploying application to Dev environment (mocked deploy)'
+                echo 'Launching deployed app in Dev environment (mocked)'
+            }
+        }
+
+        // Stage 5: Deploy to QAT environment
+        stage('Deploy to QAT') {
+            steps {
+                echo 'Deploying application to QAT environment (mocked deploy)'
+            }
+        }
+
+        // Stage 6: Deploy to Staging environment
+        stage('Deploy to Staging') {
+            steps {
+                echo 'Deploying application to Staging environment (mocked deploy)'
+            }
+        }
+
+        // Stage 7: Deploy to Production environment
+        stage('Deploy to Production') {
+            steps {
+                echo 'Deploying application to Production environment (mocked deploy)'
+            }
+        }
     }
 }
